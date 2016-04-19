@@ -4,21 +4,23 @@ import java.util.*;
 
 
 @SuppressWarnings("serial")
-public class PIMCollection extends ArrayList<PIMEntity> 
+public class PIMCollection<E> extends ArrayList<E> 
 {
-	public PIMCollection(ArrayList<PIMEntity> pim)
+	//以原有集合中元素构造PIMCollection
+	public PIMCollection(Collection<E> pim)
 	{
-		for(PIMEntity e:pim)
+		for(E e:pim)
 			add(e);
 	}
 	
 	public PIMCollection(){}
 	
-	public Collection getNotes()
+	//依次判断collection中元素类是否是所要得的类，加入集合，返回
+	public Collection<E> getNotes()
 	{
-		PIMCollection noteCollection;
-		noteCollection=new PIMCollection();
-		for(PIMEntity e:this)
+		PIMCollection<E> noteCollection;
+		noteCollection=new PIMCollection<E>();
+		for(E e:this)
 		{
 			if(e.getClass().equals(new PIMNote().getClass()))
 				noteCollection.add(e);
@@ -27,11 +29,11 @@ public class PIMCollection extends ArrayList<PIMEntity>
 		return noteCollection;
 	}
 	
-	public Collection getTodos()
+	public Collection<E> getTodos()
 	{
-		PIMCollection todoCollection;
-		todoCollection=new PIMCollection();
-		for(PIMEntity e:this)
+		PIMCollection<E> todoCollection;
+		todoCollection=new PIMCollection<E>();
+		for(E e:this)
 		{
 			if(e.getClass().equals(new PIMTodo().getClass()))
 				todoCollection.add(e);
@@ -40,11 +42,11 @@ public class PIMCollection extends ArrayList<PIMEntity>
 		return todoCollection;
 	}
 	
-	public Collection getAppointments()
+	public Collection<E> getAppointments()
 	{
-		PIMCollection appointmentCollection;
-		appointmentCollection=new PIMCollection();
-		for(PIMEntity e:this)
+		PIMCollection<E> appointmentCollection;
+		appointmentCollection=new PIMCollection<E>();
+		for(E e:this)
 		{
 			if(e.getClass().equals(new PIMAppointment().getClass()))
 				appointmentCollection.add(e);
@@ -53,11 +55,11 @@ public class PIMCollection extends ArrayList<PIMEntity>
 		return appointmentCollection;
 	}
 	
-	public Collection getContacts()
+	public Collection<E> getContacts()
 	{
-		PIMCollection contactCollection;
-		contactCollection=new PIMCollection();
-		for(PIMEntity e:this)
+		PIMCollection<E> contactCollection;
+		contactCollection=new PIMCollection<E>();
+		for(E e:this)
 		{
 			if(e.getClass().equals(new PIMContact().getClass()))
 				contactCollection.add(e);
@@ -66,11 +68,11 @@ public class PIMCollection extends ArrayList<PIMEntity>
 		return contactCollection;
 	}
 	
-	public Collection getItemsForDate(Calendar d)
+	public Collection<E> getItemsForDate(Calendar d)
 	{
-		PIMCollection forDateCollection;
-		forDateCollection=new PIMCollection();
-		for(PIMEntity e:this)
+		PIMCollection<E> forDateCollection;
+		forDateCollection=new PIMCollection<E>();
+		for(E e:this)
 		{
 				if(e instanceof pimDate)
 				{

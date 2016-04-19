@@ -13,8 +13,6 @@ import java.util.*;
 public class PIMManager 
 {
 	private static ArrayList<PIMEntity> Items;
-
-	@SuppressWarnings("unchecked")
 	public static void main(String[] args) throws IOException
 	{
 		Scanner in=new Scanner(System.in);
@@ -182,7 +180,7 @@ public class PIMManager
 			else if(command.equals("Collection"))
 			{
 				//将所返回的collection类强制转化为ArrayList<PIMEntity>
-				PIMCollection collection=new PIMCollection(Items);
+				PIMCollection<PIMEntity> collection=new PIMCollection<>(Items);
 				list((ArrayList<PIMEntity>)(collection.getAppointments()));
 				list((ArrayList<PIMEntity>)(collection.getContacts()));
 				list((ArrayList<PIMEntity>)(collection.getNotes()));
