@@ -4,7 +4,6 @@ package homework2.pims;
 
 import java.io.*;
 
-
 /*
  * @author ‘¨µ„ 13130110031
  */
@@ -164,6 +163,10 @@ public class PIMManager
 					}
 					System.out.println("Load successed");
 				}
+				catch (FileNotFoundException e) 
+				{
+					System.out.println("Can not found save file");
+				}
 			}
 			
 			//Quit÷∏¡Ó
@@ -172,6 +175,8 @@ public class PIMManager
 				in.close();
 				break;
 			}
+			
+			
 			else
 			{
 				System.out.println("error command!");
