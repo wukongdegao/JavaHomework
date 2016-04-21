@@ -1,0 +1,3 @@
+   1.PIMcollection类中的getItemsForDate方法我进行了一点改动，其接受的是Calendar参数，与原有事件中时间进行比较。
+   2.在PIMManager中我另设了一个命令Collection进行collection测试。
+   3.原有的PIM类我也略作了一些调整以适应collection。比如两个关系到的时间类中加入getDate以得到Calendar时间

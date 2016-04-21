@@ -1,5 +1,9 @@
 package homework3.pimCollection;
 
+/*
+ * @author 袁点 13130110031
+ */
+
 import java.util.*;
 
 
@@ -74,6 +78,7 @@ public class PIMCollection<E> extends ArrayList<E>
 		forDateCollection=new PIMCollection<E>();
 		for(E e:this)
 		{
+			//判断e是否实现pimDate接口
 				if(e instanceof pimDate)
 				{
 					
